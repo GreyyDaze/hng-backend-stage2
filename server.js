@@ -20,8 +20,18 @@ export function createApp() {
   return app;
 }
 
+// Create the app
 const app = createApp();
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+
+// Export a function for Vercel
+export default function (req, res) {
+  return app(req, res);
+}
+
+// Only run the server if we're not in a Vercel environment
+if (process.env.NODE_ENV !== 'production') {
+  const PORT = process.env.PORT || 3000;
+  app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+  });
+}
