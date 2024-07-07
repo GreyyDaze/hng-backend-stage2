@@ -3,12 +3,15 @@ import dotenv from "dotenv";
 import authRoutes from "./routes/authRoutes.js";
 import systemRoutes from "./routes/systemRoutes.js";
 
-
 export function createApp() {
   dotenv.config();
   const app = express();
 
   app.use(express.json());
+
+  app.get("/", (req, res) => {
+    res.send("Hello World!");
+  });
 
   // Routes
   app.use("/auth", authRoutes);
