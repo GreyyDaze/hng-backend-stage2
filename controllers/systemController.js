@@ -10,7 +10,11 @@ export const getUserById = async (req, res) => {
         userId: requestedUserId,
       },
       include: {
-        organisations: true,
+        organisations: {
+          include: {
+            users: true,
+          },
+        },
       },
     });
 
