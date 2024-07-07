@@ -1,15 +1,40 @@
 {
-    "version": 2,
-    "builds": [
-      { 
-        "src": "./*.js", 
-        "use": "@vercel/node" 
-      }
-    ],
-    "routes": [
-        {
-          "src": "/(.*)",
-          "dest": "/"
-        }
-    ]
+  "version": 2,
+  "builds": [
+    {
+      "src": "server.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/auth/register",
+      "dest": "/routes/authRoutes.js"
+    },
+    {
+      "src": "/auth/login",
+      "dest": "/routes/authRoutes.js"
+    },
+    {
+      "src": "/api/users/:id",
+      "dest": "/routes/systemRoutes.js"
+    },
+    {
+      "src": "/api/organisations",
+      "dest": "/routes/systemRoutes.js"
+    },
+    {
+      "src": "/api/organisations/:orgId",
+      "dest": "/routes/systemRoutes.js"
+    },
+    {
+      "src": "/api/organisations/:orgId/users",
+      "dest": "/routes/systemRoutes.js"
+    }
+  ],
+  "env": {
+    "DATABASE_URL": "postgresql://postgres.pupidxziowxhvdrjeqse:Nthpibakarachi23@aws-0-eu-west-2.pooler.supabase.com:5432/postgres",
+    "PORT": 3000,
+    "JWT_SECRET": "some_very_hard_secret_key_to_generate_token123"
+  }
 }
