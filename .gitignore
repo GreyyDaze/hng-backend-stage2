@@ -131,3 +131,4 @@ dist
 
 prisma/migrations/
 /prisma/migrations
+/prisma/migrations/20240706221821_init
