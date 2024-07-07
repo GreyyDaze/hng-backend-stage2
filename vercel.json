@@ -34,7 +34,7 @@
   ],
   "env": {
     "DATABASE_URL": "postgresql://postgres.pupidxziowxhvdrjeqse:Nthpibakarachi23@aws-0-eu-west-2.pooler.supabase.com:5432/postgres",
-    "PORT": 3000,
+    "PORT": "3000",
     "JWT_SECRET": "some_very_hard_secret_key_to_generate_token123"
   }
 }
